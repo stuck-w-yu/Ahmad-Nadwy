@@ -6,7 +6,6 @@ export function useScrollObserver() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible')
-          // Once animated, we can keep it visible
           observer.unobserve(entry.target)
         }
       })
@@ -24,6 +23,11 @@ export function useScrollObserver() {
 
 export function useCardSpotlight() {
   const onMouseMove = (e: MouseEvent) => {
+    // Update global background mouse position
+    document.documentElement.style.setProperty('--global-mouse-x', `${e.clientX}px`)
+    document.documentElement.style.setProperty('--global-mouse-y', `${e.clientY}px`)
+
+    // Update individual spotlight cards
     const cards = document.querySelectorAll<HTMLElement>('.spotlight-card')
     cards.forEach(card => {
       const rect = card.getBoundingClientRect()

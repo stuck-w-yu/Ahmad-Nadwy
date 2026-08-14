@@ -55,7 +55,7 @@ body {
 
 /* Apple Glass Materials */
 .glass-panel {
-  background: rgba(13, 14, 20, 0.72);
+  background: rgba(13, 14, 20, 0.75);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -63,7 +63,7 @@ body {
 }
 
 .glass-pill {
-  background: rgba(20, 21, 30, 0.8);
+  background: rgba(20, 21, 30, 0.85);
   backdrop-filter: blur(20px) saturate(190%);
   -webkit-backdrop-filter: blur(20px) saturate(190%);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -72,7 +72,7 @@ body {
 
 .glass-card {
   position: relative;
-  background: radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), rgba(12, 13, 18, 0.75);
+  background: radial-gradient(120% 120% at 50% 0%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%), rgba(12, 13, 18, 0.78);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -103,7 +103,7 @@ body {
   pointer-events: none;
   background: radial-gradient(
     400px circle at var(--mouse-x, 0) var(--mouse-y, 0),
-    rgba(99, 102, 241, 0.12),
+    rgba(99, 102, 241, 0.14),
     transparent 60%
   );
   opacity: 0;
@@ -115,6 +115,56 @@ body {
   opacity: 1;
 }
 
+/* Interactive Global Mouse Follow Glow on Body */
+.global-cursor-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -10;
+  background: radial-gradient(
+    700px circle at var(--global-mouse-x, 50vw) var(--global-mouse-y, 30vh),
+    rgba(99, 102, 241, 0.07),
+    rgba(56, 189, 248, 0.03),
+    transparent 70%
+  );
+  transition: background 0.1s ease-out;
+}
+
+/* Apple Dot Matrix & Grid Pattern with Vignette */
+.bg-dot-matrix {
+  background-size: 28px 28px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, black 40%, transparent 85%);
+}
+
+.bg-ambient-grid {
+  background-size: 56px 56px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 95% 85% at 50% 25%, black 45%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 25%, black 45%, transparent 90%);
+}
+
+/* Ultra-Fine Physical Film Noise Texture */
+.bg-noise-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Radiant Top Horizon Beam */
+.light-beam-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 1000px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.6) 25%, rgba(129, 140, 248, 0.9) 50%, rgba(192, 132, 252, 0.6) 75%, transparent 100%);
+  box-shadow: 0 0 40px 3px rgba(99, 102, 241, 0.5), 0 0 100px 10px rgba(56, 189, 248, 0.3);
+}
+
 /* Micro-interaction Spring Press State (§1 Response) */
 .btn-press {
   transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease, background-color 0.2s ease, border-color 0.2s ease;
@@ -122,14 +172,6 @@ body {
 
 .btn-press:active {
   transform: scale(0.96);
-}
-
-/* Ambient Glow Grid */
-.bg-ambient-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
 /* Scroll-Triggered Reveal Animations */
@@ -178,7 +220,7 @@ body {
     transform: translateY(0px) scale(1);
   }
   50% {
-    transform: translateY(-20px) scale(1.05);
+    transform: translateY(-25px) scale(1.08);
   }
 }
 
@@ -187,7 +229,7 @@ body {
     transform: translateY(0px) scale(1);
   }
   50% {
-    transform: translateY(18px) scale(0.95);
+    transform: translateY(22px) scale(0.92);
   }
 }
 

@@ -55,12 +55,27 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-space-950 text-zinc-100 selection:bg-indigo-500/30 selection:text-white relative bg-ambient-grid antialiased">
-    <!-- Ambient Animated Static Gradient Backdrops -->
+  <div class="min-h-screen bg-space-950 text-zinc-100 selection:bg-indigo-500/30 selection:text-white relative antialiased overflow-x-hidden">
+    <!-- Top Horizon Radiant Light Beam -->
+    <div class="light-beam-top pointer-events-none z-30"></div>
+
+    <!-- Interactive Global Cursor Glow -->
+    <div class="global-cursor-glow"></div>
+
+    <!-- Multi-Layer Rich Atmospheric Background Background Elements -->
     <div class="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
-      <div class="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1000px] h-[700px] bg-gradient-to-b from-indigo-950/40 via-sky-950/20 to-transparent rounded-full blur-[140px] animate-float-slow"></div>
-      <div class="absolute top-[45%] -left-[15%] w-[600px] h-[600px] bg-purple-950/30 rounded-full blur-[130px] animate-float-reverse"></div>
-      <div class="absolute top-[70%] -right-[15%] w-[700px] h-[700px] bg-cyan-950/20 rounded-full blur-[140px] animate-float-slow"></div>
+      <!-- 1. Deep Ambient Floating Mesh Orbs -->
+      <div class="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1100px] h-[750px] bg-gradient-to-b from-indigo-600/20 via-sky-600/10 to-transparent rounded-full blur-[140px] animate-float-slow"></div>
+      <div class="absolute top-[25%] -left-[10%] w-[650px] h-[650px] bg-purple-600/15 rounded-full blur-[130px] animate-float-reverse"></div>
+      <div class="absolute top-[50%] -right-[12%] w-[750px] h-[750px] bg-cyan-600/12 rounded-full blur-[140px] animate-float-slow"></div>
+      <div class="absolute top-[75%] left-[10%] w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[130px] animate-float-reverse"></div>
+
+      <!-- 2. Apple Tech Grid & Dot Matrix Layer with Radial Mask -->
+      <div class="absolute inset-0 bg-ambient-grid opacity-80"></div>
+      <div class="absolute inset-0 bg-dot-matrix opacity-70"></div>
+
+      <!-- 3. Ultra-Fine Physical Film Noise Texture -->
+      <div class="absolute inset-0 bg-noise-texture mix-blend-overlay pointer-events-none"></div>
     </div>
 
     <!-- Navigation Bar -->
