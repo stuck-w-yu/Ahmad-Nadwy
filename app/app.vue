@@ -9,6 +9,7 @@ import ContactSection from '~/components/ContactSection.vue'
 import Footer from '~/components/Footer.vue'
 import CommandPalette from '~/components/CommandPalette.vue'
 import ProjectModal from '~/components/ProjectModal.vue'
+import { useScrollObserver, useCardSpotlight } from '~/composables/useAnimations'
 import type { Project } from '~/data/portfolio'
 
 const isSpotlightOpen = ref(false)
@@ -40,6 +41,10 @@ const handleGlobalKeydown = (e: KeyboardEvent) => {
   }
 }
 
+// Initialize scroll observer and interactive mouse card spotlight
+useScrollObserver()
+useCardSpotlight()
+
 onMounted(() => {
   window.addEventListener('keydown', handleGlobalKeydown)
 })
@@ -51,11 +56,11 @@ onUnmounted(() => {
 
 <template>
   <div class="min-h-screen bg-space-950 text-zinc-100 selection:bg-indigo-500/30 selection:text-white relative bg-ambient-grid antialiased">
-    <!-- Ambient Static Gradient Backdrops -->
+    <!-- Ambient Animated Static Gradient Backdrops -->
     <div class="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
-      <div class="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1000px] h-[700px] bg-gradient-to-b from-indigo-950/40 via-sky-950/20 to-transparent rounded-full blur-[140px]"></div>
-      <div class="absolute top-[45%] -left-[15%] w-[600px] h-[600px] bg-purple-950/30 rounded-full blur-[130px]"></div>
-      <div class="absolute top-[70%] -right-[15%] w-[700px] h-[700px] bg-cyan-950/20 rounded-full blur-[140px]"></div>
+      <div class="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1000px] h-[700px] bg-gradient-to-b from-indigo-950/40 via-sky-950/20 to-transparent rounded-full blur-[140px] animate-float-slow"></div>
+      <div class="absolute top-[45%] -left-[15%] w-[600px] h-[600px] bg-purple-950/30 rounded-full blur-[130px] animate-float-reverse"></div>
+      <div class="absolute top-[70%] -right-[15%] w-[700px] h-[700px] bg-cyan-950/20 rounded-full blur-[140px] animate-float-slow"></div>
     </div>
 
     <!-- Navigation Bar -->

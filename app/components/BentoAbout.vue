@@ -16,7 +16,7 @@ import { PERSONAL_INFO } from '~/data/portfolio'
 </script>
 
 <template>
-  <section id="about" class="py-16 px-4 sm:px-6 max-w-4xl mx-auto">
+  <section id="about" class="py-16 px-4 sm:px-6 max-w-4xl mx-auto reveal-on-scroll">
     <!-- Header -->
     <div class="mb-8">
       <div class="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 mb-1">
@@ -28,10 +28,10 @@ import { PERSONAL_INFO } from '~/data/portfolio'
       </h2>
     </div>
 
-    <!-- Bento Grid Layout -->
+    <!-- Bento Grid Layout with Dynamic Spotlight Effects -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <!-- Bento Item 1: Personal Story (2 cols) -->
-      <div class="md:col-span-2 glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+      <div class="md:col-span-2 glass-card spotlight-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden group">
         <div>
           <div class="flex items-center gap-2 text-xs font-mono text-indigo-400 mb-3">
             <Terminal class="w-3.5 h-3.5" />
@@ -58,7 +58,7 @@ import { PERSONAL_INFO } from '~/data/portfolio'
       </div>
 
       <!-- Bento Item 2: Status & Focus (1 col) -->
-      <div class="glass-card rounded-3xl p-6 flex flex-col justify-between">
+      <div class="glass-card spotlight-card rounded-3xl p-6 flex flex-col justify-between group">
         <div>
           <div class="flex items-center gap-2 text-xs font-mono text-emerald-400 mb-3">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -70,14 +70,14 @@ import { PERSONAL_INFO } from '~/data/portfolio'
           </p>
         </div>
 
-        <div class="mt-6 p-3 rounded-2xl bg-zinc-900/80 border border-white/5 text-[11px] text-zinc-300 font-mono">
+        <div class="mt-6 p-3 rounded-2xl bg-zinc-900/80 border border-white/5 text-[11px] text-zinc-300 font-mono group-hover:border-white/10 transition-colors">
           <div class="text-zinc-500 text-[10px]">LOKASI & ZONA WAKTU</div>
           <div class="mt-0.5 text-zinc-200">{{ PERSONAL_INFO.location }} • WIB (UTC+7)</div>
         </div>
       </div>
 
       <!-- Bento Item 3: Daily Tools & Tech Stack (Full 3 cols) -->
-      <div class="md:col-span-3 glass-card rounded-3xl p-6 sm:p-7">
+      <div class="md:col-span-3 glass-card spotlight-card rounded-3xl p-6 sm:p-7 group">
         <div class="flex items-center justify-between gap-4 mb-4">
           <div class="flex items-center gap-2 text-xs font-mono text-sky-400">
             <Layers class="w-3.5 h-3.5" />
@@ -90,7 +90,7 @@ import { PERSONAL_INFO } from '~/data/portfolio'
           <div
             v-for="item in PERSONAL_INFO.stack"
             :key="item.name"
-            class="px-3 py-1.5 rounded-xl bg-zinc-900/90 border border-white/5 text-xs text-zinc-200 hover:border-white/20 transition-colors flex items-center gap-2 font-mono"
+            class="px-3 py-1.5 rounded-xl bg-zinc-900/90 border border-white/5 text-xs text-zinc-200 hover:border-sky-400/40 hover:bg-zinc-800/90 hover:scale-105 transition-all duration-300 flex items-center gap-2 font-mono cursor-default"
           >
             <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
             <span>{{ item.name }}</span>
@@ -100,21 +100,21 @@ import { PERSONAL_INFO } from '~/data/portfolio'
       </div>
 
       <!-- Bento Item 4: Personal Principles (3 cols) -->
-      <div class="md:col-span-3 glass-panel rounded-3xl p-6">
+      <div class="md:col-span-3 glass-panel spotlight-card rounded-3xl p-6">
         <div class="text-xs font-mono text-purple-400 mb-3 flex items-center gap-2">
           <Sparkles class="w-3.5 h-3.5" />
           <span>WHAT I CARE ABOUT</span>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div class="p-3.5 rounded-2xl bg-zinc-900/60 border border-white/5">
+          <div class="p-3.5 rounded-2xl bg-zinc-900/60 border border-white/5 hover:border-sky-400/25 hover:bg-zinc-900/80 transition-all duration-300">
             <div class="text-xs font-bold text-white">⚡ Fluid & Instant</div>
             <div class="text-[11px] text-zinc-400 mt-1">Interaksi tanpa lag, transisi halus, dan animasi yang terasa natural.</div>
           </div>
-          <div class="p-3.5 rounded-2xl bg-zinc-900/60 border border-white/5">
+          <div class="p-3.5 rounded-2xl bg-zinc-900/60 border border-white/5 hover:border-indigo-400/25 hover:bg-zinc-900/80 transition-all duration-300">
             <div class="text-xs font-bold text-white">🛡️ Clean & Maintainable</div>
             <div class="text-[11px] text-zinc-400 mt-1">Struktur kode rapi, type-safe, dan mudah dikembangkan untuk jangka panjang.</div>
           </div>
-          <div class="p-3.5 rounded-2xl bg-zinc-900/60 border border-white/5">
+          <div class="p-3.5 rounded-2xl bg-zinc-900/60 border border-white/5 hover:border-purple-400/25 hover:bg-zinc-900/80 transition-all duration-300">
             <div class="text-xs font-bold text-white">🎯 Purposeful Craft</div>
             <div class="text-[11px] text-zinc-400 mt-1">Fokus pada fungsionalitas utama tanpa animasi yang berlebihan atau mengganggu.</div>
           </div>
